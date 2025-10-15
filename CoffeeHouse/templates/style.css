@@ -1,0 +1,215 @@
+/* style.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #fff;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header Styles */
+.header {
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+}
+
+.logo h1 {
+    color: #8B4513;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.nav-list {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.nav-list a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-list a:hover {
+    color: #8B4513;
+}
+
+.header-actions {
+    display: flex;
+    gap: 15px;
+}
+
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    border: 1px solid #8B4513;
+    color: #8B4513;
+}
+
+.btn-secondary:hover {
+    background-color: rgba(139, 69, 19, 0.1);
+}
+
+.btn-primary {
+    background-color: #8B4513;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #6B3410;
+}
+
+.btn-large {
+    padding: 15px 30px;
+    font-size: 16px;
+    background-color: #8B4513;
+    color: white;
+    margin-top: 20px;
+}
+
+.btn-large:hover {
+    background-color: #6B3410;
+}
+
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 120px 0;
+    text-align: center;
+}
+
+.hero-title {
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.hero-subtitle {
+    font-size: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+    font-weight: 300;
+}
+
+/* Footer Styles */
+.footer {
+    background-color: #2C2C2C;
+    color: #fff;
+    padding: 60px 0 20px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-section h3 {
+    color: #8B4513;
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.footer-section h4 {
+    color: #fff;
+    font-size: 18px;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.footer-section p {
+    margin-bottom: 10px;
+    color: #ccc;
+}
+
+.copyright {
+    font-size: 14px;
+    color: #999;
+}
+
+.footer-links {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: #8B4513;
+}
+
+.footer-bottom {
+    border-top: 1px solid #444;
+    padding-top: 20px;
+    text-align: center;
+    color: #999;
+    font-size: 14px;
+}
+
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .nav-list {
+        gap: 15px;
+    }
+    
+    .hero-title {
+        font-size: 36px;
+    }
+    
+    .hero-subtitle {
+        font-size: 18px;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}

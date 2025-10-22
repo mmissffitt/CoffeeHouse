@@ -57,7 +57,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            BASE_DIR / 'CoffeeHouse' / 'templates',  # путь к вашим шаблонам
+            BASE_DIR / 'CoffeeHouse' / 'templates',  
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -119,12 +119,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
-import os
 
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    BASE_DIR / 'CoffeeHouse' / 'static',  # путь к вашей папке static в приложении
+    BASE_DIR / 'CoffeeHouse' / 'static',  
 ]
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')

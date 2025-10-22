@@ -1,6 +1,16 @@
-{% extends 'index.html' %}
+{% extends 'base.html' %}
 {% load static %}
 
 {%block main%}
-
+<main class="main-content">
+    <div class="hero-section">
+        <img src="{% static 'CoffeeHouse/images/fonGlav.png' %}" alt="Кофе и завтрак" class="hero-image">
+        <div class="hero-overlay">
+            <div class="hero-content">
+                <h2 class="hero-title">Начни этот день правильно<br>с завтрака в кофейне</h2>
+                <button class="hero-menu-btn">Меню</button>
+            </div>
+        </div>
+    </div>
+</main>
 {%endblock%}

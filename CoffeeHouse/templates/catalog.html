@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{%block main%}
+<main class="catalog-main">
+    <div class="filters-container">
+        <!-- Фильтр "Все". Активен, если не выбрана конкретная категория -->
+        <a href="{% url 'catalog' %}" class="filter-btn {% if not selected_category_id %}active{% endif %}">Все</a> 
+
+        <!-- Перебираем категории из базы данных -->
+        {% for category in categories %}
+            <a href="{% url 'catalog' %}?category={{ category.id }}" 
+               class="filter-btn {% if selected_category_id == category.id %}active{% endif %}">
+                {{ category.category_name }}
+            </a>
+        {% endfor %}
+    </div>
+
+    <div class="products-grid">
+        {% for product in products %}
+        <div class="product-card">
+            {% if product.image %}
+            <img src="{{ product.image.url }}" alt="{{ product.name }}" class="product-image">
+            {% else %}
+            <img src="{% static 'CoffeeHouse/images/placeholder.png' %}" alt="{{ product.name }}" class="product-image">
+            {% endif %}
+            <h3 class="product-name">{{ product.name }}</h3>
+            <p class="product-weight-volume">{{ product.weight_volume }}</p>
+            <p class="product-description">{{ product.description }}</p>
+            <div class="product-bottom">
+                <span class="product-price">{{ product.price }} RUB</span>
+                <button class="add-to-cart-btn">
+                    <img src="{% static 'CoffeeHouse/images/dobavCor.svg' %}" alt="Добавить в корзину">
+                </button>
+            </div>
+        </div>
+        {% empty %}
+        <p class="no-products-message">Товары пока не добавлены.</p>
+        {% endfor %}
+    </div>
+</main>
+{%endblock%}

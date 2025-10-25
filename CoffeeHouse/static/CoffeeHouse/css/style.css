@@ -10,10 +10,16 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    /* Учитываем высоту фиксированного хедера */
+    padding-top: 155px; /* Примерное значение, зависит от высоты вашего хедера */
 }
 
 .header {
     background-color: rgba(220, 207, 195, 1);
+    position: fixed; /* Закрепляем хедер */
+    width: 100%; /* Растягиваем на всю ширину */
+    top: 0; /* Прикрепляем к верху */
+    z-index: 1000; /* Перекрываем другие элементы, чтобы хедер был сверху */
 }
 
 .header-top {
@@ -102,7 +108,7 @@ body {
 .footer-content {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center; /* Выравниваем элементы по вертикали по центру */
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
@@ -152,7 +158,6 @@ body {
     gap: 15px;
 }
 
-
 .main-content {
     padding: 0;
     margin: 0;
@@ -162,7 +167,8 @@ body {
 .hero-section {
     position: relative;
     width: 100%;
-    height: calc(100vh - 200px); 
+    /* Высота секции уменьшена на высоту хедера */
+    height: calc(100vh - 155px); /* 155px - примерная высота вашего хедера */
     overflow: hidden;
 }
 
@@ -216,3 +222,117 @@ body {
     transform: translateY(-2px);
 }
 
+.catalog-main {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.filters-container {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 15px;
+    margin-top: 50px; /* Добавлен или увеличен этот отступ сверху filters-container */
+    margin-bottom: 40px; /* Этот отступ уже был */
+    justify-content: center;
+}
+
+.filter-btn {
+    display: block;
+    padding: 10px 25px;
+    border: 2px solid rgba(169, 138, 109, 1); /* Цвет контура */
+    border-radius: 25px; /* Скругленные края */
+    background-color: transparent; /* Пустой цвет */
+    color: rgba(102, 77, 54, 1); /* Цвет текста */
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    white-space: nowrap; /* Предотвращает перенос текста в кнопках */
+}
+
+.filter-btn:hover {
+    background-color: rgba(169, 138, 109, 0.2); /* Слегка затемняем при наведении */
+}
+
+.filter-btn.active {
+    background-color: rgba(169, 138, 109, 1); /* Активный фильтр */
+    color: white;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Адаптивная сетка */
+    gap: 30px;
+    justify-items: center;
+}
+
+.product-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    text-align: center;
+    max-width: 300px;
+}
+
+.product-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.product-name {
+    font-size: 1.5rem;
+    color: #664d36;
+    margin-bottom: 5px;
+}
+
+.product-weight-volume {
+    font-size: 0.9rem;
+    color: #888;
+    margin-bottom: 10px;
+}
+
+.product-description {
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 15px;
+    flex-grow: 1; /* Описание может занимать разную высоту */
+}
+
+.product-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto; /* Прижимаем к низу карточки */
+}
+
+.product-price {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #A98A6D;
+}
+
+.add-to-cart-btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    line-height: 0; /* Убираем лишний отступ у кнопки */
+}
+
+.add-to-cart-btn img {
+    width: 30px; /* Размер иконки корзины */
+    height: 30px;
+    transition: transform 0.2s ease;
+}
+
+.add-to-cart-btn img:hover {
+    transform: scale(1.1);
+}

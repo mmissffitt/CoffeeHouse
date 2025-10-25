@@ -63,6 +63,10 @@ class Products(models.Model):
         on_delete=models.CASCADE,
         verbose_name="Категория"
     )
+    image = models.ImageField("Изображение", upload_to='products/', null=True, blank=True)
+    description = models.TextField("Описание", null=True, blank=True)
+    weight_volume = models.CharField("Вес/Объем", max_length=50, null=True, blank=True)
+
 
     class Meta:
         verbose_name = "Товар"

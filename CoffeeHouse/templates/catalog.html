@@ -4,10 +4,10 @@
 {%block main%}
 <main class="catalog-main">
     <div class="filters-container">
-        <!-- Фильтр "Все". Активен, если не выбрана конкретная категория -->
+        <!-- фильтр "все - активен, если не выбрана конкретная категория -->
         <a href="{% url 'catalog' %}" class="filter-btn {% if not selected_category_id %}active{% endif %}">Все</a> 
 
-        <!-- Перебираем категории из базы данных -->
+        <!-- перебираем категории из базы данных -->
         {% for category in categories %}
             <a href="{% url 'catalog' %}?category={{ category.id }}" 
                class="filter-btn {% if selected_category_id == category.id %}active{% endif %}">
@@ -22,7 +22,7 @@
             {% if product.image %}
             <img src="{{ product.image.url }}" alt="{{ product.name }}" class="product-image">
             {% else %}
-            <img src="{% static 'CoffeeHouse/images/placeholder.png' %}" alt="{{ product.name }}" class="product-image">
+            <img src="{% static 'CoffeeHouse/images/umolch.jpg' %}" alt="{{ product.name }}" class="product-image">
             {% endif %}
             <h3 class="product-name">{{ product.name }}</h3>
             <p class="product-weight-volume">{{ product.weight_volume }}</p>

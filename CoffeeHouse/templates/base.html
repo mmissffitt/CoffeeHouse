@@ -10,13 +10,15 @@
 <body>
     <header class="header">
         <div class="header-top">
-            <img src="{% static 'CoffeeHouse/images/logo.svg' %}" alt="Иконка" class="icon">
-            <h1 class="logo">COFFINITY</h1>
+            <a href="{% url 'main-catalog' %}" class="header-logo-link">
+                <img src="{% static 'CoffeeHouse/images/logo.svg' %}" alt="Логотип Coffinuty" class="icon">
+                <h1 class="logo">COFFINITY</h1>
+            </a>
         </div>
         <nav class="header-nav">
             <div class="nav-container">
                 <img src="{% static 'CoffeeHouse/images/menu.svg' %}" alt="Иконка меню" class="nav-icon">
-                <button class="menu-btn">Меню</button>
+                <a href="{% url 'catalog' %}" class="menu-btn">Меню</a>
                 
                 <div class="search-container">
                     <input type="text" placeholder="Поиск..." class="search-input">
@@ -40,8 +42,10 @@
         <div class="footer-content">
             <div class="footer-left">
                 <div class="footer-logo">
-                    <img src="{% static 'CoffeeHouse/images/miniLogo.svg' %}" alt="Иконка" class="icon">
-                    <span class="logo-text">COFFINITY</span>
+                    <a href="{% url 'main-catalog' %}" class="footer-logo-link">
+                        <img src="{% static 'CoffeeHouse/images/miniLogo.svg' %}" alt="Логотип Coffinuty" class="icon">
+                        <span class="logo-text">COFFINITY</span>
+                    </a>
                 </div>
                 <p class="copyright">© 2025 Кофейня Coffinity</p>
             </div>

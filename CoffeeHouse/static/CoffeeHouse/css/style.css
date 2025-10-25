@@ -10,16 +10,36 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    /* Учитываем высоту фиксированного хедера */
-    padding-top: 155px; /* Примерное значение, зависит от высоты вашего хедера */
+    padding-top: 155px; 
 }
 
+/* общие стили для ссылок кнопок и ссылок логотипов */
+.menu-btn,
+.hero-menu-btn,
+.header-logo-link,
+.footer-logo-link,
+.footer-link,
+.filter-btn {
+    text-decoration: none; 
+}
+
+/* общие стили для иконок и элементов навигации */
+.icon, .nav-icon, .search-icon, .social-icon {
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.icon:hover, .nav-icon:hover, .search-icon:hover, .social-icon:hover {
+    opacity: 0.7;
+}
+
+/* ХЕДЕР */
 .header {
     background-color: rgba(220, 207, 195, 1);
-    position: fixed; /* Закрепляем хедер */
-    width: 100%; /* Растягиваем на всю ширину */
-    top: 0; /* Прикрепляем к верху */
-    z-index: 1000; /* Перекрываем другие элементы, чтобы хедер был сверху */
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
 }
 
 .header-top {
@@ -30,7 +50,13 @@ body {
     position: relative;
 }
 
-.logo {
+.header-logo-link { 
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo { 
     font-size: 2.5rem;
     color: #664d36;
     letter-spacing: 2px;
@@ -50,7 +76,7 @@ body {
     padding: 0 20px;
 }
 
-.menu-btn {
+.menu-btn { 
     background-color: white;
     color: rgba(102, 77, 54, 1);
     border: none;
@@ -60,6 +86,7 @@ body {
     transition: all 0.3s ease;
     font-size: 1rem;
     margin-left: 10px;
+    display: inline-block; 
 }
 
 .menu-btn:hover {
@@ -90,74 +117,7 @@ body {
     margin-left: 20px;
 }
 
-.icon, .nav-icon, .search-icon, .social-icon {
-    cursor: pointer;
-    transition: opacity 0.3s ease;
-}
-
-.icon:hover, .nav-icon:hover, .search-icon:hover, .social-icon:hover {
-    opacity: 0.7;
-}
-
-.footer {
-    background-color: rgba(220, 207, 195, 1);
-    padding: 40px 0;
-    margin-top: auto;
-}
-
-.footer-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center; /* Выравниваем элементы по вертикали по центру */
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-.footer-left {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.footer-logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.logo-text {
-    font-size: 1.5rem;
-    color: #664d36;
-    font-weight: bold;
-}
-
-.copyright {
-    color: #664d36;
-    font-size: 0.9rem;
-}
-
-.footer-center {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.footer-link {
-    color: #664d36;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.footer-link:hover {
-    color: #8b6b4d;
-}
-
-.footer-right {
-    display: flex;
-    gap: 15px;
-}
-
+/* СТИЛИ ДЛЯ МЕЙНА - ГЛАВНОЙ СТРАНИЧКИ */
 .main-content {
     padding: 0;
     margin: 0;
@@ -167,8 +127,7 @@ body {
 .hero-section {
     position: relative;
     width: 100%;
-    /* Высота секции уменьшена на высоту хедера */
-    height: calc(100vh - 155px); /* 155px - примерная высота вашего хедера */
+    height: calc(100vh - 155px); 
     overflow: hidden;
 }
 
@@ -204,7 +163,7 @@ body {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-.hero-menu-btn {
+.hero-menu-btn { 
     background-color: white;
     color: rgba(102, 77, 54, 1);
     border: none;
@@ -214,6 +173,7 @@ body {
     transition: all 0.3s ease;
     font-size: 1.1rem;
     font-weight: bold;
+    display: inline-block; 
 }
 
 .hero-menu-btn:hover {
@@ -222,6 +182,7 @@ body {
     transform: translateY(-2px);
 }
 
+/* СТРАНИЦА КАТАЛОГ */
 .catalog-main {
     max-width: 1200px;
     margin: 30px auto;
@@ -232,37 +193,36 @@ body {
     display: flex;
     flex-wrap: wrap; 
     gap: 15px;
-    margin-top: 50px; /* Добавлен или увеличен этот отступ сверху filters-container */
-    margin-bottom: 40px; /* Этот отступ уже был */
+    margin-top: 50px;
+    margin-bottom: 40px;
     justify-content: center;
 }
 
 .filter-btn {
     display: block;
     padding: 10px 25px;
-    border: 2px solid rgba(169, 138, 109, 1); /* Цвет контура */
-    border-radius: 25px; /* Скругленные края */
-    background-color: transparent; /* Пустой цвет */
-    color: rgba(102, 77, 54, 1); /* Цвет текста */
-    text-decoration: none;
+    border: 2px solid rgba(169, 138, 109, 1);
+    border-radius: 25px;
+    background-color: transparent;
+    color: rgba(102, 77, 54, 1);
     font-size: 1rem;
     font-weight: bold;
     transition: all 0.3s ease;
-    white-space: nowrap; /* Предотвращает перенос текста в кнопках */
+    white-space: nowrap;
 }
 
 .filter-btn:hover {
-    background-color: rgba(169, 138, 109, 0.2); /* Слегка затемняем при наведении */
+    background-color: rgba(169, 138, 109, 0.2);
 }
 
 .filter-btn.active {
-    background-color: rgba(169, 138, 109, 1); /* Активный фильтр */
+    background-color: rgba(169, 138, 109, 1);
     color: white;
 }
 
 .products-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Адаптивная сетка */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
     justify-items: center;
 }
@@ -303,14 +263,14 @@ body {
     font-size: 0.95rem;
     color: #555;
     margin-bottom: 15px;
-    flex-grow: 1; /* Описание может занимать разную высоту */
+    flex-grow: 1;
 }
 
 .product-bottom {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: auto; /* Прижимаем к низу карточки */
+    margin-top: auto;
 }
 
 .product-price {
@@ -324,15 +284,74 @@ body {
     border: none;
     cursor: pointer;
     padding: 0;
-    line-height: 0; /* Убираем лишний отступ у кнопки */
+    line-height: 0;
 }
 
 .add-to-cart-btn img {
-    width: 30px; /* Размер иконки корзины */
+    width: 30px;
     height: 30px;
     transition: transform 0.2s ease;
 }
 
 .add-to-cart-btn img:hover {
     transform: scale(1.1);
+}
+
+/* ФУТЕР */
+.footer {
+    background-color: rgba(220, 207, 195, 1);
+    padding: 40px 0;
+    margin-top: auto;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-left {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-logo-link {  
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-text { 
+    font-size: 1.5rem;
+    color: #664d36;
+    font-weight: bold;
+}
+
+.copyright {
+    color: #664d36;
+    font-size: 0.9rem;
+}
+
+.footer-center {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-link {
+    color: #664d36;
+    transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+    color: #8b6b4d;
+}
+
+.footer-right {
+    display: flex;
+    gap: 15px;
 }

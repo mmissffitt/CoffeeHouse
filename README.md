@@ -2,14 +2,13 @@
 python -m venv .venv
 
 # Активация виртуального окружения
-# Для Windows:
+## Для Windows:
 .venv\Scripts\activate
-# Для Linux/Mac:
+## Для Linux/Mac:
 source .venv/bin/activate
 
 # Установка зависимостей
-pip install django
-pip install Pillow
+pip install django Pillow
 
 # Запуск сервера разработки
 python manage.py runserver

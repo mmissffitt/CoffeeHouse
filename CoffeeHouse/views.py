@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponse 
+from django.shortcuts import render, HttpResponse, get_object_or_404
 from .models import Products, CategoriesOfProducts 
 
 def root(request):
@@ -24,10 +24,12 @@ def catalog(request):
             # если категория не найдена, ничего не фильтруем 
             pass
             
-    # добавляем класс 'active' к текущему выбранному фильтру
-    
     return render(request, 'catalog.html', {
         'products': products,
         'categories': all_categories,
-        'selected_category_id': int(selected_category_id) if selected_category_id else None, # передаем ID выбранной категории в шаблон для подсветки
+        'selected_category_id': int(selected_category_id) if selected_category_id else None, 
     })
+
+def product_detail(request, pk):
+    product = get_object_or_404(Products, pk=pk)
+    return render(request, 'product-detail.html', {'product': product})

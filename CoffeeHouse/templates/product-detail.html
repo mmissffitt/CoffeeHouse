@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block main %}
+<main class="product-detail-main">
+    <div class="product-detail-container">
+        <div class="product-detail-image-wrapper">
+            {% if product.image %}
+            <img src="{{ product.image.url }}" alt="{{ product.name }}" class="product-detail-image">
+            {% else %}
+            <img src="{% static 'CoffeeHouse/images/umolch.jpg' %}" alt="{{ product.name }}" class="product-detail-image">
+            {% endif %}
+        </div>
+
+        <div class="product-detail-info">
+            <h1 class="product-detail-name">{{ product.name }}</h1>
+            <p class="product-detail-category">{{ product.category.category_name }}</p>
+            <p class="product-detail-weight-volume">{{ product.weight_volume }}</p>
+            <p class="product-detail-description">{{ product.description }}</p>
+            
+            <div class="product-detail-options">
+                <p>Выберите вариант:</p>
+                <div class="option-buttons">
+                    <button class="option-btn active">С собой</button>
+                    <button class="option-btn">В зале</button>
+                </div>
+            </div>
+
+            <div class="product-detail-actions">
+                <span class="product-detail-price">{{ product.price }} RUB</span>
+                <button class="add-to-cart-btn-large">
+                    <img src="{% static 'CoffeeHouse/images/dobavCor.svg' %}" alt="Добавить в корзину"> Добавить
+                </button>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}

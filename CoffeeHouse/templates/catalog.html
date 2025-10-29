@@ -4,10 +4,8 @@
 {%block main%}
 <main class="catalog-main">
     <div class="filters-container">
-        <!-- фильтр "все - активен, если не выбрана конкретная категория -->
         <a href="{% url 'catalog' %}" class="filter-btn {% if not selected_category_id %}active{% endif %}">Все</a> 
 
-        <!-- перебираем категории из базы данных -->
         {% for category in categories %}
             <a href="{% url 'catalog' %}?category={{ category.id }}" 
                class="filter-btn {% if selected_category_id == category.id %}active{% endif %}">
@@ -19,14 +17,17 @@
     <div class="products-grid">
         {% for product in products %}
         <div class="product-card">
-            {% if product.image %}
-            <img src="{{ product.image.url }}" alt="{{ product.name }}" class="product-image">
-            {% else %}
-            <img src="{% static 'CoffeeHouse/images/umolch.jpg' %}" alt="{{ product.name }}" class="product-image">
-            {% endif %}
-            <h3 class="product-name">{{ product.name }}</h3>
-            <p class="product-weight-volume">{{ product.weight_volume }}</p>
-            <p class="product-description">{{ product.description }}</p>
+            <a href="{% url 'product_detail' pk=product.pk %}" class="product-card-link-content"> 
+                {% if product.image %}
+                <img src="{{ product.image.url }}" alt="{{ product.name }}" class="product-image">
+                {% else %}
+                <img src="{% static 'CoffeeHouse/images/umolch.jpg' %}" alt="{{ product.name }}" class="product-image">
+                {% endif %}
+                <h3 class="product-name">{{ product.name }}</h3>
+                <p class="product-weight-volume">{{ product.weight_volume }}</p>
+                <p class="product-description">{{ product.description }}</p>
+            </a> 
+
             <div class="product-bottom">
                 <span class="product-price">{{ product.price }} RUB</span>
                 <button class="add-to-cart-btn">

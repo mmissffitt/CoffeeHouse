@@ -4,10 +4,11 @@
 {%block main%}
 <main class="catalog-main">
     <div class="filters-container">
-        <a href="{% url 'catalog' %}" class="filter-btn {% if not selected_category_id %}active{% endif %}">Все</a> 
+        <!-- изменяем URL для фильтра "Все", чтобы сохранить поисковый запрос -->
+        <a href="{% url 'catalog' %}{% if search_query %}?search={{ search_query }}{% endif %}" class="filter-btn {% if not selected_category_id %}active{% endif %}">Все</a> 
 
         {% for category in categories %}
-            <a href="{% url 'catalog' %}?category={{ category.id }}" 
+            <a href="{% url 'catalog' %}?category={{ category.id }}{% if search_query %}&search={{ search_query }}{% endif %}" 
                class="filter-btn {% if selected_category_id == category.id %}active{% endif %}">
                 {{ category.category_name }}
             </a>
@@ -36,7 +37,7 @@
             </div>
         </div>
         {% empty %}
-        <p class="no-products-message">Товары пока не добавлены.</p>
+        <p class="no-products-message">Товары по вашему запросу не найдены.</p>
         {% endfor %}
     </div>
 </main>

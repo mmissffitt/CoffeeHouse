@@ -15,14 +15,23 @@
                 <h1 class="logo">COFFINITY</h1>
             </a>
         </div>
-        <nav class="header-nav">
+
+         <nav class="header-nav">
             <div class="nav-container">
                 <img src="{% static 'CoffeeHouse/images/menu.svg' %}" alt="Иконка меню" class="nav-icon">
                 <a href="{% url 'catalog' %}" class="menu-btn">Меню</a>
                 
                 <div class="search-container">
-                    <input type="text" placeholder="Поиск..." class="search-input">
-                    <img src="{% static 'CoffeeHouse/images/lupa.svg' %}" alt="Лупа" class="search-icon">
+                    <form method="get" action="{% url 'catalog' %}" style="display: contents;">
+                        <!-- сохраняем параметр category, если он был -->
+                        {% if request.GET.category %}
+                            <input type="hidden" name="category" value="{{ request.GET.category }}">
+                        {% endif %}
+                        <input type="text" name="search" placeholder="Поиск..." class="search-input" value="{{ search_query|default:'' }}">
+                        <button type="submit">
+                            <img src="{% static 'CoffeeHouse/images/lupa.svg' %}" alt="Лупа" class="search-icon">
+                        </button>
+                    </form>
                 </div>
 
                 <div class="nav-icons">
